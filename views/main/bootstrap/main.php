@@ -11,12 +11,12 @@
             <h2 class="h2-med">있으신가요?</h2>
         </div>
         <form class="col-md-9" name="header_search" id="header_search" action="<?php echo site_url('cmall/lists'); ?>" onSubmit="return headerSearch(this);">
-            <div class="form-inline mt20">
-                <div class="col-md-10">
-                    <input type="text" class="form-control " placeholder="Search" name="skeyword" accesskey="s" style="width:100%;"/>
+            <div class="form-inline mt20 ">
+                <div class="col-md-9">
+                    <input type="text" class="form-control " placeholder="지역명과 음식을 입력해주세요. Ex) 망원동 양꼬치" name="skeyword" accesskey="s" style="width:100%;"/>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <button class="btn btn-dark" type="submit">SEARCH</button>
                 </div>
             </div>
@@ -47,25 +47,27 @@
             autoWidth:true,
             items: 2,
             loop: true,
-            margin: 10,
+            margin: 20,
+
+
+
+//            responsive: {
+//                0:{
+//                    items:1
+//                },
+//                600: {
+//                    items: 1
+//                },
+//                1100: {
+//                    items: 3
+//                }
+//            },
             nav:true,
             navText: [
                 '<i class="ot-circle fa fa-angle-left" aria-label="Prev"></i>',
                 '<i class="ot-circle fa fa-angle-right" aria-label="Next"></i>'
             ],
             dots:true,
-
-    //                responsive: {
-    //                    0:{
-    //                        items:1
-    //                    },
-    //                    600: {
-    //                        items: 1
-    //                    },
-    //                    1000: {
-    //                        items: 3
-    //                    }
-    //                },
 
         });
 </script>

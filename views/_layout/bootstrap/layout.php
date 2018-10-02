@@ -62,59 +62,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
 <body <?php echo isset($view) ? element('body_script', $view) : ''; ?>>
 <div class="wrapper">
 
-    <?php if ($this->cbconfig->get_device_view_type() !== 'mobile') {?>
-        <!-- header start -->
-        <header class="header">
-            <div class="container">
-                <ul class="header-top-menu">
-                    <?php if ($this->member->is_admin() === 'super') { ?>
-                        <li><i class="fa fa-cog"></i><a href="<?php echo site_url(config_item('uri_segment_admin')); ?>" title="관리자 페이지로 이동">관리자</a></li>
-                    <?php } ?>
-                    <?php
-                    if ($this->member->is_member()) {
-                        if ($this->cbconfig->item('use_notification')) {
-                    ?>
-<!--                        <li class="notifications">-->
-<!--                            <i class="fa fa-bell-o"></i>알림 <span class="badge notification_num">--><?php //echo number_format(element('notification_num', $layout) + 0); ?><!--</span>-->
-<!--                            <div class="notifications-menu"> </div>-->
-<!--                        </li>-->
-                        <script type="text/javascript">
-                        //<![CDATA[
-                        $(document).mouseup(function (e)
-                        {
-                            var noticontainer = $('.notifications-menu');
 
-                            if ( ! noticontainer.is(e.target) // if the target of the click isn't the container...
-                                && noticontainer.has(e.target).length === 0) // ... nor a descendant of the container
-                            {
-                                noticontainer.hide();
-                            }
-                        });
-                        //]]>
-                        </script>
-                    <?php
-                        }
-                    ?>
-                        <li><i class="fa fa-sign-out"></i><a href="<?php echo site_url('login/logout?url=' . urlencode(current_full_url())); ?>" title="로그아웃">로그아웃</a></li>
-<!--                        <li><i class="fa fa-user"></i><a href="--><?php //echo site_url('mypage'); ?><!--" title="마이페이지">마이페이지</a></li>-->
-                    <?php } else { ?>
-                        <li><!--<i class="fa fa-sign-in"></i>--><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" title="로그인">로그인</a></li>
-                        <li><!--<i class="fa fa-user"></i>--><a href="<?php echo site_url('register'); ?>" title="회원가입">회원가입</a></li>
-                    <?php } ?>
-                    <?php if ($this->cbconfig->item('open_currentvisitor')) { ?>
-<!--                        <li><i class="fa fa-link"></i><a href="--><?php //echo site_url('currentvisitor'); ?><!--" title="현재접속자">현재접속자</a> <span class="badge">--><?php //echo element('current_visitor_num', $layout); ?><!--</span></li>-->
-                    <?php } ?>
-                </ul>
-            </div>
-
-        <!-- header-content end -->
-        </header>
-
-<?php } else {?>
-
-<!--    <div class="header_line"></div>-->
-
-<?php } ?>
 
     <!-- nav start -->
     <nav class="navbar navbar-default">
@@ -126,6 +74,8 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
+
 
                 <a href="<?php echo site_url(); ?>" class="" title="<?php echo html_escape($this->cbconfig->item('site_title'));?>">
                     <?php if ($this->cbconfig->get_device_view_type() !== 'mobile') {?>
@@ -139,10 +89,51 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                 <span class="navbar-left"> | </span>
                 <span class="navbar-left" style="letter-spacing:4px">FIND A UNIQUE PLACE</span>
             </div>
+            <div class="navbar-collapse collapse title-link hidden-xs">
+                <ul class="nav navbar-nav navbar-right">
+                    <?php if ($this->member->is_admin() === 'super') { ?>
+<!--                        <li><a href="--><?php //echo site_url(config_item('uri_segment_admin')); ?><!--" title="관리자 페이지로 이동">관리자</a></li>-->
+                    <?php } ?>
+                    <?php
+                    if ($this->member->is_member()) {
+                    if ($this->cbconfig->item('use_notification')) {
+                        ?>
+                        <!--                        <li class="notifications">-->
+                        <!--                            <i class="fa fa-bell-o"></i>알림 <span class="badge notification_num">--><?php //echo number_format(element('notification_num', $layout) + 0); ?><!--</span>-->
+                        <!--                            <div class="notifications-menu"> </div>-->
+                        <!--                        </li>-->
+                        <script type="text/javascript">
+                            //<![CDATA[
+                            $(document).mouseup(function (e)
+                            {
+                                var noticontainer = $('.notifications-menu');
+
+                                if ( ! noticontainer.is(e.target) // if the target of the click isn't the container...
+                                    && noticontainer.has(e.target).length === 0) // ... nor a descendant of the container
+                                {
+                                    noticontainer.hide();
+                                }
+                            });
+                            //]]>
+                        </script>
+                    <?php
+                    }
+                    ?>
+                        <li><a href=""><span> <?php echo html_escape($this->member->item('mem_nickname')); ?></span> 님</a> </li>
+<!--                        <li><a href="--><?php //echo site_url('login/logout?url=' . urlencode(current_full_url())); ?><!--" title="로그아웃">로그아웃</a></li>-->
+
+                    <?php } else { ?>
+                        <li><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" title="로그인">로그인</a></li>
+                        <li><a href="<?php echo site_url('register'); ?>" title="회원가입">회원가입</a></li>
+                    <?php } ?>
+
+                </ul>
+            </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
         </div>
     </nav>
-    <div class="navbar navbar-default navbar-default-sub" role="navigation">
+    <?php if ($this->cbconfig->get_device_view_type() !== 'mobile') {?>
+    <div class="navbar navbar-default navbar-default-sub hideen-xs" role="navigation">
         <div class="container">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -190,14 +181,16 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
 <!--                    </li>-->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="./">인기검색어</a></li>
-                    <li style="min-width: 200px" class="dropdown">
+                    <li><a href="./">인기검색어</a></li>
+                    <li class="dropdown">
                         <a href="<?php echo '/cmall/lists?skeyword='.html_escape(element('sek_keyword', $result)); ?>" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="text-pink">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
 
-                            <?php  $i=0; foreach (element('list', element('fch_data', $view)) as $result) {$i++; if($i==1){echo html_escape(element('sek_keyword', $result));}}?> <i style="float:right;margin-right:-40px;"class="fa fa-angle-down"></i>
+                            <?php  $i=0; foreach (element('list', element('fch_data', $view)) as $result) {$i++; if($i==1){echo html_escape(element('sek_keyword', $result));}}?>
 
                         </a>
+
+
                         <ul class="dropdown-menu">
                             <?php
                             $i=0;
@@ -214,20 +207,18 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                             ?>
                         </ul>
                     </li>
+                    <li><a><i class="fa fa-angle-down"></i></a></li>
 
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
 
     </div>
-
+    <?php } ?>
 
     <!-- main start -->
     <div class="main">
 
-<!--        --><?php //if (element('board', element('list', $view))) {?>
-<!--        <div class="container">-->
-<!--        --><?php //} ?>
             <div class="row">
 
                 <?php if (element('use_sidebar', $layout)) {?>
@@ -242,14 +233,9 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <div class="sidebar">
-                            <!-- 사이드바 시작 -->
-                            <?php $this->load->view(element('layout_skin_path', $layout) . '/sidebar'); ?>
-                            <!-- 사이드바 끝 -->
+
                         </div>
                     </div>
-<!--                --><?php //} ?>
-<!--                --><?php //if (element('board', element('list', $view))) {?>
-<!--            </div>-->
             <?php } ?>
         </div>
 
