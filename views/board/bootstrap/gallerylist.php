@@ -157,7 +157,7 @@
                     </p>
                 </div>
 
-                <p class="pull-right bold" style="letter-spacing: 2px">
+                <a href="<?php echo element('post_url', $result); ?>" class="pull-right bold" style="letter-spacing: 2px;text-w">
                     VIEW MORE &nbsp;&nbsp;<i class="text-pink bold fa fa-angle-right"></i>
 <!--                    --><?php //echo element('display_name', $result); ?>
 <!--                    --><?php ////echo element('display_datetime', $result); ?>
@@ -166,7 +166,7 @@
 <!--                    --><?php //if (element('post_secret', $result)) { ?><!--<span class="fa fa-lock"></span>--><?php //} ?>
 <!--                    --><?php //if (element('post_comment_count', $result)) { ?><!--<span class="comment-count"><i class="fa fa-comments"></i>--><?php //echo element('post_comment_count', $result); ?><!--</span>--><?php //} ?>
 <!--                    <span class="hit-count"><i class="fa fa-eye"></i> --><?php //echo number_format(element('post_hit', $result)); ?><!--</span>-->
-                </p>
+                </a>
             </div>
         <?php
                 $i++;
@@ -184,41 +184,8 @@
     </div>
     <?php echo form_close(); ?>
 
-    <div class="border_button">
-        <div class="pull-left mr10">
-            <a href="<?php echo element('list_url', element('list', $view)); ?>" class="btn btn-default btn-sm">목록</a>
-            <?php if (element('search_list_url', element('list', $view))) { ?>
-                <a href="<?php echo element('search_list_url', element('list', $view)); ?>" class="btn btn-default btn-sm">검색목록</a>
-            <?php } ?>
-        </div>
-        <?php if (element('is_admin', $view)) { ?>
-            <div class="pull-left">
-                <button type="button" class="btn btn-default btn-sm admin-manage-list"><i class="fa fa-cog big-fa"></i> 관리</button>
-                <div class="btn-admin-manage-layer admin-manage-layer-list">
-                    <?php if (element('is_admin', $view) === 'super') { ?>
-                        <div class="item" onClick="document.location.href='<?php echo admin_url('board/boards/write/' . element('brd_id', element('board', element('list', $view)))); ?>';"><i class="fa fa-cog"></i> 게시판설정</div>
-                        <div class="item" onClick="post_multi_copy('copy');"><i class="fa fa-files-o"></i> 복사하기</div>
-                        <div class="item" onClick="post_multi_copy('move');"><i class="fa fa-arrow-right"></i> 이동하기</div>
-                        <div class="item" onClick="post_multi_change_category();"><i class="fa fa-tags"></i> 카테고리변경</div>
-                    <?php } ?>
-                    <div class="item" onClick="post_multi_action('multi_delete', '0', '선택하신 글들을 완전삭제하시겠습니까?');"><i class="fa fa-trash-o"></i> 선택삭제하기</div>
-                    <div class="item" onClick="post_multi_action('post_multi_secret', '0', '선택하신 글들을 비밀글을 해제하시겠습니까?');"><i class="fa fa-unlock"></i> 비밀글해제</div>
-                    <div class="item" onClick="post_multi_action('post_multi_secret', '1', '선택하신 글들을 비밀글로 설정하시겠습니까?');"><i class="fa fa-lock"></i> 비밀글로</div>
-                    <div class="item" onClick="post_multi_action('post_multi_notice', '0', '선택하신 글들을 공지를 내리시겠습니까?');"><i class="fa fa-bullhorn"></i> 공지내림</div>
-                    <div class="item" onClick="post_multi_action('post_multi_notice', '1', '선택하신 글들을 공지로 등록 하시겠습니까?');"><i class="fa fa-bullhorn"></i> 공지올림</div>
-                    <div class="item" onClick="post_multi_action('post_multi_blame_blind', '0', '선택하신 글들을 블라인드 해제 하시겠습니까?');"><i class="fa fa-exclamation-circle"></i> 블라인드해제</div>
-                    <div class="item" onClick="post_multi_action('post_multi_blame_blind', '1', '선택하신 글들을 블라인드 처리 하시겠습니까?');"><i class="fa fa-exclamation-circle"></i> 블라인드처리</div>
-                    <div class="item" onClick="post_multi_action('post_multi_trash', '', '선택하신 글들을 휴지통으로 이동하시겠습니까?');"><i class="fa fa-trash"></i> 휴지통으로</div>
-                </div>
-            </div>
-        <?php } ?>
-        <?php if (element('write_url', element('list', $view))) { ?>
-            <div class="pull-right">
-                <a href="<?php echo element('write_url', element('list', $view)); ?>" class="btn btn-success btn-sm">글쓰기</a>
-            </div>
-            <?php } ?>
-        </div>
-        <nav><?php echo element('paging', element('list', $view)); ?></nav>
+
+
 </div>
 
 <?php echo element('footercontent', element('board', element('list', $view))); ?>

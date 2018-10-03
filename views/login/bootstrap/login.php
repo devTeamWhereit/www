@@ -15,22 +15,24 @@
                 <input type="hidden" name="url" value="<?php echo html_escape($this->input->get_post('url')); ?>" />
                 <div class="form-group row-centered mt50">
 <!--                    <label class="col-lg-2 control-label">--><?php//// echo element('userid_label_text', $view);?><!--</label>-->
-                    <div class="col-lg-5 col-centered">
-                        <input type="text" name="mem_userid" class="form-control" value="<?php echo set_value('mem_userid'); ?>" accesskey="L" placeholder="<?php echo element('userid_label_text', $view);?>"/>
+                    <div class="col-lg-5 col-centered ">
+                        <input type="text" name="mem_userid" id="mem_userid"  class="form-control" value="<?php echo set_value('mem_userid'); ?>" accesskey="L" placeholder="<?php echo element('userid_label_text', $view);?>"/>
                     </div>
 <!--                    <div class="col-lg-2">&nbsp;</div>-->
                 </div>
                 <div class="form-group row-centered">
 <!--                    <label class="col-lg-2">&nbsp;</label>-->
                     <div class="col-lg-5 col-centered">
-                        <input type="password" class="form-control" name="mem_password" placeholder="비밀번호"/>
+                        <input type="password" class="form-control" name="mem_password" id="mem_password"  placeholder="비밀번호"/>
                     </div>
 <!--                    <div class="col-lg-2">&nbsp;</div>-->
                 </div>
-                <div class="form-group row-centered mt30">
-                        <a href="<?php echo site_url('register'); ?>" class="" title="회원가입">회원가입</a> |
-                        <a href="<?php echo site_url('findaccount'); ?>" class="" title="아이디 패스워드 찾기">아이디 패스워드 찾기</a>
-                    </div>
+                <div class="form-group text-center mt30 login-form">
+                    <a href="<?php echo site_url('findaccount'); ?>" class="" title="아이디 패스워드 찾기">비밀번호 찾기</a>
+                    <span> | </span>
+                    <a href="<?php echo site_url('register'); ?>" class="" title="회원가입">회원가입</a>
+
+                </div>
                 </div>
                 <div class="form-group row-centered mt30">
                     <div class="col-sm-2 col-md-3 col-centered">
@@ -50,8 +52,8 @@
             if ($this->cbconfig->item('use_sociallogin')) {
                 $this->managelayout->add_js(base_url('assets/js/social_login.js'));
             ?>
-                <div class="form-group mt30 row-centered">
-                    <h5 class="col-centered col-md-6">혹은 소설계정으로 간펴하게 로그안하세요</h5>
+                <div class="form-group mt30 row-centered login-form">
+                    <h5 class="col-centered col-md-6">혹은 <strong>소설계정</strong>으로 간편하게 로그안하세요</h5>
                     <div class="col-lg-12 col-centered mt40">
                     <?php if ($this->cbconfig->item('use_sociallogin_facebook')) {?>
                         <a href="javascript:;" onClick="social_connect_on('facebook');" title="페이스북 로그인" class="mr30"><img src="<?php echo base_url('assets/images/insta.png'); ?>" width="65" height="90" alt="페이스북 로그인" title="페이스북 로그인" /></a>

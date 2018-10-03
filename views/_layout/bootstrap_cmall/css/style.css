@@ -714,6 +714,16 @@ a:visited{
 
 }
 
+@media (min-width: 768px){
+.navbar-nav>li>a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+}
+.navbar-nav>li>a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
 
 .navbar {
   background: #fff;
@@ -721,17 +731,31 @@ a:visited{
   border-radius: 0;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12);
   position: relative;
-  min-height: 50px;
+  min-height: 47px;
   margin-bottom: 0;
   border: none;
 }
 .dropdown{
   min-width: 220px;
 }
-.fa-angle-down{
-
+.dropdown-menu>li>a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-family: NotoSansCJKkr-DemiLight;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #504f57;
+  white-space: nowrap;
 }
-
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
 .dropdown-menu {
   position: absolute;
   top: 0;
@@ -746,9 +770,8 @@ a:visited{
   background-color: #fff;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  border: 1px solid #ccc;
   border: 1px solid #d8a3d2;
-  border-radius: 4px;
+  border-radius: 6px;
   -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
@@ -850,6 +873,15 @@ footer .copyright {
   color:#fff;
   background: #504f57;
 }
+.btn-dark:hover {
+  font-family: Montserrat-bold;
+  font-size: 12px;
+  letter-spacing: 3px;
+  padding: 1.2rem 4.7rem;
+  color: #fff;
+  background: #d0c1d0;
+}
+
 .panel-pink {
   border-color: #d8a3d2;
 }
@@ -990,7 +1022,7 @@ h2 .h2{
 .btn-search {
   color: #ebdaeb;
   background-color: #fff;
-  border-color: #ccc;
+  border-color: #504f57;
   border-left:none;
   line-height: 3rem;
 }
@@ -1009,7 +1041,7 @@ h2 .h2{
   color: #555;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 1px solid #504f57;
   border-radius: 2.25em;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);

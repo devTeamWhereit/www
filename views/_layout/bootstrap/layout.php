@@ -124,7 +124,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
 
                     <?php } else { ?>
                         <li><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" title="로그인">로그인</a></li>
-                        <li><a href="<?php echo site_url('register'); ?>" title="회원가입">회원가입</a></li>
+
                     <?php } ?>
 
                 </ul>
@@ -183,7 +183,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="./">인기검색어</a></li>
                     <li class="dropdown">
-                        <a href="<?php echo '/cmall/lists?skeyword='.html_escape(element('sek_keyword', $result)); ?>" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="<?php echo '/cmall/lists?skeyword='.html_escape(element('sek_keyword', $result)); ?>&soltdate=all" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="text-pink">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
 
                             <?php  $i=0; foreach (element('list', element('fch_data', $view)) as $result) {$i++; if($i==1){echo html_escape(element('sek_keyword', $result));}}?>
@@ -198,7 +198,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                                 foreach (element('list', element('fch_data', $view)) as $result) {
                                     $i++;
                                     ?>
-                                <li><a href="<?php echo '/cmall/lists?skeyword='.html_escape(element('sek_keyword', $result)); ?>"> <span class="text-pink">&nbsp;&nbsp;<?=$i?>&nbsp;&nbsp;&nbsp;&nbsp;</span> <?php echo html_escape(element('sek_keyword', $result)); ?></a>
+                                <li><a href="<?php echo '/cmall/lists?skeyword='.html_escape(element('sek_keyword', $result)); ?>&soltdate=all"> <span class="text-pink">&nbsp;&nbsp;<?=$i?>&nbsp;&nbsp;&nbsp;&nbsp;</span> <?php echo html_escape(element('sek_keyword', $result)); ?></a>
 
 
                                     <?php
@@ -295,7 +295,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                         <span><a href="<?php echo site_url('mypage'); ?>" class="btn btn-primary btn-xs" title="마이페이지"> <i class="fa fa-user"></i> 마이페이지 </a></span>
                     <?php } else { ?>
                         <span><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" class="btn btn-primary btn-xs" title="로그인"> <i class="fa fa-sign-in"></i> 로그인 </a></span>
-                        <span><a href="<?php echo site_url('register'); ?>" class="btn btn-primary btn-xs" title="회원가입"> <i class="fa fa-user"></i> 회원가입 </a></span>
+
                     <?php } ?>
                 </div>
                 <ul class="m_board">

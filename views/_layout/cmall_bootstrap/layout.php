@@ -91,7 +91,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                         <li><i class="fa fa-user"></i><a href="<?php echo site_url('mypage'); ?>" title="마이페이지">마이페이지</a></li>
                     <?php } else { ?>
                         <li><i class="fa fa-sign-in"></i><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" title="로그인">로그인</a></li>
-                        <li><i class="fa fa-user"></i><a href="<?php echo site_url('register'); ?>" title="회원가입">회원가입</a></li>
+
                     <?php } ?>
                     <?php if ($this->cbconfig->item('open_currentvisitor')) { ?>
                         <li><i class="fa fa-link"></i><a href="<?php echo site_url('currentvisitor'); ?>" title="현재접속자">현재접속자</a> <span class="badge"><?php echo element('current_visitor_num', $layout); ?></span></li>
@@ -255,7 +255,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                         <span><a href="<?php echo site_url('mypage'); ?>" class="btn btn-primary btn-xs" title="마이페이지"> <i class="fa fa-user"></i> 마이페이지 </a></span>
                     <?php } else { ?>
                         <span><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" class="btn btn-primary btn-xs" title="로그인"> <i class="fa fa-sign-in"></i> 로그인 </a></span>
-                        <span><a href="<?php echo site_url('register'); ?>" class="btn btn-primary btn-xs" title="회원가입"> <i class="fa fa-user"></i> 회원가입 </a></span>
+
                     <?php } ?>
                 </div>
                 <ul class="m_board">

@@ -18,7 +18,7 @@
         <?php } ?>
     <?php } else { ?>
         <div class="pull-right solt-date" >
-            <a href="<?php echo current_url()."?skeyword=&soltdate=all"; ?>" class="<?=$this->input->get('soltdate')=='all'?'active':''?>">누적</a>
+            <a href="<?php echo current_url()."?skeyword=&soltdate=all"; ?>" class="<?=$this->input->get('soltdate')=='all'  || !$this->input->get('soltdate')?'active':''?>">누적</a>
             <a href="<?php echo current_url()."?skeyword=&soltdate=3m"; ?>" class="<?=$this->input->get('soltdate')=='3m'?'active':''?>">최근 3개월</a>
         </div>
         <h2 class="h2-med mt-45">가장인기있는</h2>
@@ -39,7 +39,9 @@
                         <a href="<?php echo cmall_item_url(element('cit_key', $item)); ?>" title="<?php echo html_escape(element('cit_name', $item)); ?>">
                             <img src="<?php if(element('cit_file_1', $item)){echo html_escape(element('cit_file_1', $item));}else{echo "/assets/images/desktop_detail_default.png";}?>" alt="<?php echo html_escape(element('cit_name', $item)); ?>" title="<?php echo html_escape(element('cit_name', $item)); ?>" style="width: 232px; height: 232px;"/>
                         </a>
-                        <p class="cmall-tit"><a href="<?php echo cmall_item_url(element('cit_key', $item)); ?>" title="<?php echo html_escape(element('cit_name', $item)); ?>"><?php echo html_escape(element('cit_name', $item)); ?></a> <span class="pull-right" style="color: #d8a3d2"><?php echo element('cit_summary', $item); ?> </span></p>
+                        <p class="cmall-tit"><a href="<?php echo cmall_item_url(element('cit_key', $item)); ?>" title="<?php echo html_escape(element('cit_name', $item)); ?>"><?php echo html_escape(element('cit_name', $item)); ?></a>
+                            <span class="pull-right" style="color: #d8a3d2"><?php echo element('cit_summary', $item); ?> </span>
+                        </p>
 
 <!--                        <p class="cmall-tit">--><?php //foreach (element('category', $item) as $cv) { echo '<label class="label label-pink">' . html_escape(element('cca_value', $cv)) . '</label> ';} ?><!--</p>-->
                         <p class="cmall-tit">

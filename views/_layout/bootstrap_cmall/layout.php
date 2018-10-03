@@ -137,7 +137,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
 
                     <?php } else { ?>
                         <li><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" title="로그인">로그인</a></li>
-                        <li><a href="<?php echo site_url('register'); ?>" title="회원가입">회원가입</a></li>
+
                     <?php } ?>
 
                 </ul>
@@ -321,7 +321,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                         <span><a href="<?php echo site_url('mypage'); ?>" class="btn btn-primary btn-xs" title="마이페이지"> <i class="fa fa-user"></i> 마이페이지 </a></span>
                     <?php } else { ?>
                         <span><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" class="btn btn-primary btn-xs" title="로그인"> <i class="fa fa-sign-in"></i> 로그인 </a></span>
-                        <span><a href="<?php echo site_url('register'); ?>" class="btn btn-primary btn-xs" title="회원가입"> <i class="fa fa-user"></i> 회원가입 </a></span>
+
                     <?php } ?>
                 </div>
                 <ul class="m_board">
