@@ -85,10 +85,23 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                     <?php } ?>
                 </a>
             </div>
-            <div class="hidden-xs navbar-text">
-                <span class="navbar-left"> | </span>
-                <span class="navbar-left" style="letter-spacing:4px">FIND A UNIQUE PLACE</span>
-            </div>
+
+
+
+                <div class="search-center">
+                    <form name="header_search"id="header_search" action="<?php echo site_url('cmall/lists'); ?>" onSubmit="return headerSearch(this);">
+                        <div class="input-group">
+                            <!--                        <input type="text" class="form-control" placeholder="Search">-->
+                            <input type="text" class="form-control " placeholder="Search" name="skeyword" accesskey="s" style="border-right:none; "/>
+                            <div class="input-group-btn">
+                                <button class="btn btn-search" type="submit" style="border-left:none">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
             <div class="navbar-collapse collapse title-link hidden-xs">
                 <ul class="nav navbar-nav navbar-right navbar-header">
                     <?php if ($this->member->is_admin() === 'super') { ?>
@@ -132,13 +145,21 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
             <!-- Collect the nav links, forms, and other content for toggling -->
         </div>
     </nav>
-    <?php if ($this->cbconfig->get_device_view_type() !== 'mobile') {?>
+    <?php
+    $siteUrl=site_url();
+    $baseUrl=base_url();
+    $currentUrl=current_url();
+    $uriString="/".uri_string();
+
+    if ($this->cbconfig->get_device_view_type() !== 'mobile') { ?>
     <div class="navbar navbar-default navbar-default-sub hideen-xs" role="navigation">
         <div class="container">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <?php
                     $menuhtml = '';
+
+//                    $indexUrl=index_url();
                     if (element('menu', $layout)) {
                         $menu = element('menu', $layout);
                         if (element(0, $menu)) {
@@ -146,7 +167,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                                 if (element(element('men_id', $mval), $menu)) {
                                     $mlink = element('men_link', $mval) ? element('men_link', $mval) : 'javascript:;';
                                     $menuhtml .= '<li class="dropdown">
-                                    <a href="' . $mlink . '" ' . element('men_custom', $mval);
+                                    <a  href="' . $mlink . '" ' . element('men_custom', $mval);
                                     if (element('men_target', $mval)) {
                                         $menuhtml .= ' target="' . element('men_target', $mval) . '"';
                                     }
@@ -165,7 +186,12 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
 
                                 } else {
                                     $mlink = element('men_link', $mval) ? element('men_link', $mval) : 'javascript:;';
-                                    $menuhtml .= '<li><a href="' . $mlink . '" ' . element('men_custom', $mval);
+                                    if($uriString==$mlink){
+                                        $menuhtml .= '<li><a class="active" href="' . $mlink . '" ' . element('men_custom', $mval);
+                                    }else{
+                                        $menuhtml .= '<li><a href="' . $mlink . '" ' . element('men_custom', $mval);
+                                    }
+
                                     if (element('men_target', $mval)) {
                                         $menuhtml .= ' target="' . element('men_target', $mval) . '"';
                                     }

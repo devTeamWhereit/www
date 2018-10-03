@@ -122,7 +122,7 @@ class Ranking extends CB_Controller
             'meta_description' => $meta_description,
             'meta_keywords' => $meta_keywords,
             'meta_author' => $meta_author,
-            'page_name' => $page_name,
+            'page_name' => '/ranking',
         );
         $view['layout'] = $this->managelayout->front($layoutconfig, $this->cbconfig->get_device_view_type());
         $this->data = $view;

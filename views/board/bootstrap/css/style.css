@@ -81,6 +81,10 @@
     display: block;
     max-width: 100%;
     height: auto;
+
+}
+
+img.thumbnail.img-responsive{
     border-radius: 2.25em;
 }
 .img-thumbnail, .thumbnail {
