@@ -43,7 +43,7 @@
 
 <!--                        <p class="cmall-tit">--><?php //foreach (element('category', $item) as $cv) { echo '<label class="label label-pink">' . html_escape(element('cca_value', $cv)) . '</label> ';} ?><!--</p>-->
                         <p class="cmall-tit">
-                            <label class="label label-pink"><?php echo html_escape(element('address_index', $item)); ?></label>
+                            <label class="label label-pink"><?php echo html_escape(element('collect_region', $item)); ?></label>
                             <label class="label label-pink"><?php echo html_escape(element('category', $item)); ?></label>
                         </p>
 

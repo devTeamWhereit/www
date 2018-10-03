@@ -1084,6 +1084,7 @@ body{
 
 }
 .rank {
+
   opacity: 0.4;
   cursor: pointer;
 }
@@ -1109,4 +1110,7 @@ body{
   border-bottom: 4px solid #504f57;
   text-align: center;
   display: block;
+}
+.text-date{
+  color:#d0c1d0;
 }

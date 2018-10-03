@@ -266,6 +266,7 @@ class Cmall extends CB_Controller
                     $result['list'][$key]['cit_img_src'] =element('hasgtag', $val);
                     $result['list'][$key]['category'] = element('category', $val);
                     $result['list'][$key]['address_index'] = element('address_index', $val);
+                    $result['list'][$key]['collect_region'] = element('collect_region', $val);
                 }
 //                $result['list'][$key]['cit_key'] =element('_id', $val);
 //                $result['list'][$key]['cit_name'] =element('Name', $val);
