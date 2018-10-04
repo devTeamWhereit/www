@@ -123,5 +123,5 @@ function itemSearch(f) {
 //]]>
 </script>
 
-<a href="<?php echo current_url(); ?>" class="btn btn-default btn-sm">목록</a>
+<!--<a href="--><?php //echo current_url(); ?><!--" class="btn btn-default btn-sm">목록</a>-->
 <nav><?php echo element('paging', $view); ?></nav>

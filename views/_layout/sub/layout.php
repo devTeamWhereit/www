@@ -92,7 +92,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                     <form name="header_search"id="header_search" action="<?php echo site_url('cmall/lists'); ?>" onSubmit="return headerSearch(this);">
                         <div class="input-group">
                             <!--                        <input type="text" class="form-control" placeholder="Search">-->
-                            <input type="text" class="form-control " placeholder="Search" name="skeyword" accesskey="s" style="border-right:none; "/>
+                            <input type="text" class="form-control " placeholder="지역명과 음식을 입력해주세요. Ex) 망원동 양꼬치" name="skeyword" accesskey="s" style="border-right:none; "/>
                             <div class="input-group-btn">
                                 <button class="btn btn-search" type="submit" style="border-left:none">
                                     <i class="glyphicon glyphicon-search"></i>
@@ -137,7 +137,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
 
                     <?php } else { ?>
                         <li><a href="<?php echo site_url('login?url=' . urlencode(current_full_url())); ?>" title="로그인">로그인</a></li>
-                        <li><a href="<?php echo site_url('register'); ?>" title="회원가입">회원가입</a></li>
+
                     <?php } ?>
 
                 </ul>

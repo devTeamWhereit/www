@@ -889,12 +889,16 @@ footer .copyright {
   background: #504f57;
 }
 .btn-dark:hover {
-  font-family: Montserrat-bold;
-  font-size: 12px;
-  letter-spacing: 3px;
-  padding: 1.2rem 4.7rem;
-  color: #fff;
   background: #d0c1d0;
+  color:#fff;
+}
+.btn-dark:active {
+  color:#fff;
+  background: #d8a3d2;
+}
+.btn-dark:before {
+  color:#504f57;
+  background: #fff;
 }
 
 .panel-pink {
@@ -1172,4 +1176,16 @@ input#mem_password{
 .login-form > h5{
   font-family: NotoSansCJKkr-DemiLight;
   color:#504f57;
+}
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+   border: none;
+  border-radius: 4px;
+   -webkit-box-shadow: 0;
+   box-shadow: 0;
+}
+.panel {
+   -webkit-box-shadow: 0 ;
+   box-shadow: 0;
 }

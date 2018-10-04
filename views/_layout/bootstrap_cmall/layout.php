@@ -92,7 +92,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                     <form name="header_search"id="header_search" action="<?php echo site_url('cmall/lists'); ?>" onSubmit="return headerSearch(this);">
                         <div class="input-group">
                             <!--                        <input type="text" class="form-control" placeholder="Search">-->
-                            <input type="text" class="form-control " placeholder="Search" name="skeyword" accesskey="s" style="border-right:none; "/>
+                            <input type="text" class="form-control " placeholder="지역명과 음식을 입력해주세요. Ex) 망원동 양꼬치" name="skeyword" accesskey="s" style="border-right:none; " value="<?=$this->input->get('skeyword')?>" placeholder="지역명과 음식을 입력해주세요. Ex) 망원동 양꼬치"/>
                             <div class="input-group-btn">
                                 <button class="btn btn-search" type="submit" style="border-left:none">
                                     <i class="glyphicon glyphicon-search"></i>

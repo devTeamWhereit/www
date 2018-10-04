@@ -51,23 +51,40 @@
 
 
 
-//            responsive: {
-//                0:{
-//                    items:1
-//                },
-//                600: {
-//                    items: 1
-//                },
-//                1100: {
-//                    items: 3
-//                }
-//            },
+            responsive: {
+                0:{
+                    items:1
+                },
+                600: {
+                    items: 1
+                },
+                1100: {
+                    items: 3
+                }
+            },
             nav:true,
             navText: [
-                '<i class="ot-circle fa fa-angle-left" aria-label="Prev"></i>',
-                '<i class="ot-circle fa fa-angle-right" aria-label="Next"></i>'
+                '<img class="xyz" data-alt-src="/assets/images/btn_hover_left.png" src="/assets/images/btn_left.png" /><!--<i class="ot-circle fa fa-angle-left" aria-label="Prev"></i>-->',
+                '<img class="xyz" data-alt-src="/assets/images/btn_hover_right.png" src="/assets/images/btn_right_1.png" /><!--<i class="ot-circle fa fa-angle-right" aria-label="Next"></i>-->'
             ],
             dots:true,
 
         });
+
+    $('.owl-carousel').find('.owl-nav').removeClass('disabled');
+    $('.owl-carousel').on('changed.owl.carousel', function(event) {
+        $(this).find('.owl-nav').removeClass('disabled');
+    });
+    $(function () {
+        var sourceSwap = function () {
+            var $this = $(this);
+            var newSource = $this.data('alt-src');
+            $this.data('alt-src', $this.attr('src'));
+            $this.attr('src', newSource);
+        }
+
+        $(function () {
+            $('img.xyz').hover(sourceSwap, sourceSwap);
+        });
+    });
 </script>

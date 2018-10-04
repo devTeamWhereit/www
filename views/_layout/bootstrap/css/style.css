@@ -888,14 +888,17 @@ footer .copyright {
   background: #504f57;
 }
 .btn-dark:hover {
-  font-family: Montserrat-bold;
-  font-size: 12px;
-  letter-spacing: 3px;
-  padding: 1.2rem 4.7rem;
-  color: #fff;
   background: #d0c1d0;
+  color:#fff;
 }
-
+.btn-dark:active {
+  color:#fff;
+  background: #d8a3d2;
+}
+.btn-dark:before {
+  color:#504f57;
+  background: #fff;
+}
 .panel-pink {
   border-color: #d8a3d2;
 }
@@ -926,6 +929,7 @@ footer .copyright {
 
   }
 }
+
 @media (min-width: 1921px){
   .owl-nav{
     width: 1285px;

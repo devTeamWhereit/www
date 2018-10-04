@@ -217,7 +217,7 @@ class Cmall extends CB_Controller
             $sfield = array('cit_name', 'cit_content');
         }
         $skeyword = $this->input->get('skeyword', null, '');
-
+        $scategory= $this->input->get('soltdate',null,'');
         $per_page = $this->cbconfig->item('list_count') ? (int) $this->cbconfig->item('list_count') : 20;
         $offset = ($page - 1) * $per_page;
 
@@ -230,15 +230,38 @@ class Cmall extends CB_Controller
         $where = array();
         $where['cit_status'] = 1;
         $result = $this->Cmall_item_model->get_item_list($per_page, $offset, $where, $category_id, $findex, $sfield, $skeyword);
-        $result_sql = $this->cimongo->get("store",16);
-        $result_array = $result_sql->result_array();
+
+
+//        $result_sql = $this->cimongo->get("store",16);
+//        $result_array = $result_sql->result_array();
 
 //        $where = array( array( 'age', '<', 18 ),
 //            array( 'gender', '=', 'Female') );
 
 //        $this->mongoq->collection('store_image_info');
-//        $this->mongoq->where( 'store_name', '=', '치즈팩토리카페' );
-//        $result = $this->mongoq->get();
+//
+        $this->mongoq->from('store');
+
+        $array_skeyword = explode(" ",$skeyword);
+        if(count($array_skeyword) >1 ){
+
+            $this->mongoq->Where(array(array('region','like',$array_skeyword[0]),array('Name','like',$array_skeyword[1])));
+        }
+        if($skeyword && count($array_skeyword) <=0){
+
+            $this->mongoq->orWhere(array(array('region','like',$skeyword),array('Name','like',$skeyword)));
+        }
+        if(!$skeyword || $scategory=='all'){
+
+        }
+        $this->mongoq->limit(16);
+        $result_array = $this->mongoq->get('true');
+
+
+//    $this->mongoq->limit(16);
+
+
+
 //        $result_cnt = $this->mongoq->count();
 //        echo $result_arrayaaa;
 //        echo $result_sub;
